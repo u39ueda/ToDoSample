@@ -14,6 +14,8 @@
 		0B69927621196D0800F969F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B69927421196D0800F969F6 /* LaunchScreen.storyboard */; };
 		0B69928121196D0800F969F6 /* ToDoSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69928021196D0800F969F6 /* ToDoSampleTests.swift */; };
 		0B69928C21196D0800F969F6 /* ToDoSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69928B21196D0800F969F6 /* ToDoSampleUITests.swift */; };
+		0B69929A21196DB300F969F6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69929921196DB300F969F6 /* main.swift */; };
+		0B69929C21196DE800F969F6 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69929B21196DE800F969F6 /* TestingAppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		0B69928721196D0800F969F6 /* ToDoSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B69928B21196D0800F969F6 /* ToDoSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoSampleUITests.swift; sourceTree = "<group>"; };
 		0B69928D21196D0800F969F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B69929921196DB300F969F6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0B69929B21196DE800F969F6 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0B69926B21196D0700F969F6 /* AppDelegate.swift */,
+				0B69929921196DB300F969F6 /* main.swift */,
 				0B69926D21196D0700F969F6 /* ViewController.swift */,
 				0B69926F21196D0700F969F6 /* Main.storyboard */,
 				0B69927221196D0800F969F6 /* Assets.xcassets */,
@@ -112,6 +117,7 @@
 			children = (
 				0B69928021196D0800F969F6 /* ToDoSampleTests.swift */,
 				0B69928221196D0800F969F6 /* Info.plist */,
+				0B69929B21196DE800F969F6 /* TestingAppDelegate.swift */,
 			);
 			path = ToDoSampleTests;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			files = (
 				0B69926E21196D0700F969F6 /* ViewController.swift in Sources */,
 				0B69926C21196D0700F969F6 /* AppDelegate.swift in Sources */,
+				0B69929A21196DB300F969F6 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B69928121196D0800F969F6 /* ToDoSampleTests.swift in Sources */,
+				0B69929C21196DE800F969F6 /* TestingAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -417,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
