@@ -8,6 +8,8 @@ target 'ToDoSample' do
   # Pods for ToDoSample
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
 
   target 'ToDoSampleTests' do
     inherit! :search_paths

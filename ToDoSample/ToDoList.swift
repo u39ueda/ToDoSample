@@ -14,10 +14,13 @@ class ToDoListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private lazy var addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddButton(_:)))
+    private lazy var logoutButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onLogoutButton(_:)))
 
     private lazy var db = Firestore.firestore()
+    private lazy var user: User = Auth.auth().currentUser!
+    private lazy var userRef: DocumentReference = self.db.document("users/\(self.user.uid)")
     private lazy var todoRef: CollectionReference = self.db.collection("todo")
-    private lazy var todoQuery: Query = self.todoRef.order(by: "updated", descending: true)
+    private lazy var todoQuery: Query = self.todoRef.whereField("author_id", isEqualTo: self.user.uid).order(by: "updated", descending: true)
     private var todoItems = [ToDoItem]()
 
     deinit {
@@ -28,7 +31,7 @@ class ToDoListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.leftBarButtonItem = self.addButtonItem
+        self.navigationItem.leftBarButtonItems = [self.logoutButtonItem, self.addButtonItem]
 
         todoQuery.addSnapshotListener { [weak self] (snapshot, error) in
             guard let `self` = self else { return }
@@ -147,9 +150,14 @@ extension ToDoListViewController {
 
     @objc func onAddButton(_ sender: Any) {
         let newDocRef = self.todoRef.document()
-        let todoItem = ToDoItem(newDocRef.documentID, title: String(describing: Date()))
+        let todoItem = ToDoItem(newDocRef.documentID, authorId: user.uid, title: String(describing: Date()))
         let data = todoItem.asDictionary()
         newDocRef.setData(data)
+    }
+
+    @objc func onLogoutButton(_ sender: Any) {
+        print(#function)
+        try? Auth.auth().signOut()
     }
 }
 

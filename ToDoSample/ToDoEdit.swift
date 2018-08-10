@@ -38,6 +38,8 @@ class ToDoEditViewController: UIViewController {
         }
     }
     private lazy var db = Firestore.firestore()
+    private lazy var user: User = Auth.auth().currentUser!
+    private lazy var userRef: DocumentReference = self.db.document("users/\(self.user.uid)")
     private var todoRef: DocumentReference!
 
     deinit {
@@ -94,7 +96,7 @@ extension ToDoEditViewController {
         }
 
         let newTitle = titleTextField.text ?? ""
-        let newToDoItem = ToDoItem(todoItem.documentID, title: newTitle, updated: Date())
+        let newToDoItem = ToDoItem(todoItem.documentID, authorId: todoItem.authorId, title: newTitle, updated: Date())
         if todoItem.title != newToDoItem.title {
             let data = newToDoItem.asDictionary()
             todoRef.setData(data)

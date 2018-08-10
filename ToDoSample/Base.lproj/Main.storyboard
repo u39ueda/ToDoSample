@@ -153,6 +153,22 @@
             </objects>
             <point key="canvasLocation" x="1076" y="886.50674662668678"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="8SI-pB-koe">
+            <objects>
+                <viewController storyboardIdentifier="LaunchScreen" id="8ZW-KW-oJU" sceneMemberID="viewController">
+                    <containerView key="view" opaque="NO" contentMode="scaleToFill" id="xpU-dN-Esf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <segue destination="hbm-zc-SRa" kind="embed" id="T1K-UH-dfU"/>
+                        </connections>
+                    </containerView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHO-cY-od2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="-569"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gL-c5-ihr">
             <objects>
@@ -170,6 +186,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFd-bf-2Vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="146" y="134"/>
+        </scene>
+        <!--LaunchScreen-->
+        <scene sceneID="DCH-0G-EtV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LaunchScreen" id="hbm-zc-SRa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xzy-sA-2WT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="-570"/>
         </scene>
     </scenes>
 </document>
