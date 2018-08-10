@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class TodoEditViewController: UIViewController {
 
     static func create(todoItem: TodoItem) -> TodoEditViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "TodoEdit") as! TodoEditViewController
-        vc.todoItem = todoItem
+        vc.todoRef = vc.db.collection("todo").document(todoItem.documentID)
         return vc
     }
 
@@ -28,15 +29,38 @@ class TodoEditViewController: UIViewController {
     private lazy var editButtonItem2 = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEditButton(_:)))
     private lazy var saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSaveButton(_:)))
 
-    private var todoItem: TodoItem!
+    private var todoItem: TodoItem? {
+        didSet {
+            navigationItem.title = todoItem?.title
+            titleTextField.text = todoItem?.title
+            saveButtonItem.isEnabled = todoItem != nil
+            editButtonItem2.isEnabled = todoItem != nil
+        }
+    }
+    private lazy var db = Firestore.firestore()
+    private var todoRef: DocumentReference!
+
+    deinit {
+        print(type(of: self), #function)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        assert(todoItem != nil, "must set todoItem.")
+        assert(todoRef != nil, "must set todoRef.")
 
-        navigationItem.title = todoItem.title
         navigationItem.rightBarButtonItem = self.editButtonItem2
         navigationItem.largeTitleDisplayMode = .never
+        setEditing(false, animated: false)
+
+        todoRef.getDocument { (snapshot, error) in
+            if let error = error {
+                print("getDocument failure. error=\(error)")
+            } else if let snapshot = snapshot {
+                self.todoItem = TodoItem.from(document: snapshot)
+            } else {
+                fatalError("both error and snapshot are nil.")
+            }
+        }
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -48,13 +72,10 @@ class TodoEditViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        titleTextField.text = todoItem.title
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.setEditing(false, animated: false)
     }
 }
 
@@ -67,7 +88,19 @@ extension TodoEditViewController {
 
     @objc func onSaveButton(_ sender: Any) {
         print(#function)
-        todoItem.title = titleTextField.text ?? ""
+        guard let todoItem = todoItem else {
+            assertionFailure("can save after getDocument complete.")
+            return
+        }
+
+        let newTitle = titleTextField.text ?? ""
+        let newTodoItem = TodoItem(todoItem.documentID, title: newTitle, updated: Date())
+        if todoItem.title != newTodoItem.title {
+            let data = newTodoItem.asDictionary()
+            todoRef.setData(data)
+            self.todoItem = newTodoItem
+        }
+
         setEditing(false, animated: true)
     }
 }
