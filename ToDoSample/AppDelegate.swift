@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Firebase初期化
+        FirebaseApp.configure()
+
         // 初期画面生成
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
