@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4219E7211A97B80097B682 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4219E6211A97B80097B682 /* ToDo.swift */; };
 		0B69926C21196D0700F969F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69926B21196D0700F969F6 /* AppDelegate.swift */; };
 		0B69926E21196D0700F969F6 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69926D21196D0700F969F6 /* ToDoList.swift */; };
 		0B69927121196D0700F969F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B69926F21196D0700F969F6 /* Main.storyboard */; };
@@ -16,7 +17,7 @@
 		0B69928C21196D0800F969F6 /* ToDoSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69928B21196D0800F969F6 /* ToDoSampleUITests.swift */; };
 		0B69929A21196DB300F969F6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69929921196DB300F969F6 /* main.swift */; };
 		0B69929C21196DE800F969F6 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69929B21196DE800F969F6 /* TestingAppDelegate.swift */; };
-		0B69929E2119792900F969F6 /* TodoEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69929D2119792900F969F6 /* TodoEdit.swift */; };
+		0B69929E2119792900F969F6 /* ToDoEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B69929D2119792900F969F6 /* ToDoEdit.swift */; };
 		0B6992A0211991B800F969F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B69929F211991B800F969F6 /* GoogleService-Info.plist */; };
 		3D6A633C513317910BE012FF /* Pods_ToDoSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443780DC8657795CAA1208FA /* Pods_ToDoSampleUITests.framework */; };
 		87A885C0B5AA925F666D493E /* Pods_ToDoSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D18280958C0541461B22AA /* Pods_ToDoSampleTests.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B4219E6211A97B80097B682 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		0B69926821196D0700F969F6 /* ToDoSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B69926B21196D0700F969F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B69926D21196D0700F969F6 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		0B69928D21196D0800F969F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B69929921196DB300F969F6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0B69929B21196DE800F969F6 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
-		0B69929D2119792900F969F6 /* TodoEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEdit.swift; sourceTree = "<group>"; };
+		0B69929D2119792900F969F6 /* ToDoEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoEdit.swift; sourceTree = "<group>"; };
 		0B69929F211991B800F969F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		266C9DCA513AD9F931E16703 /* Pods-ToDoSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoSampleTests/Pods-ToDoSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		29C860FA0DA3771E2A85E98A /* Pods-ToDoSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoSampleUITests/Pods-ToDoSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +127,8 @@
 				0B69926B21196D0700F969F6 /* AppDelegate.swift */,
 				0B69929921196DB300F969F6 /* main.swift */,
 				0B69926D21196D0700F969F6 /* ToDoList.swift */,
-				0B69929D2119792900F969F6 /* TodoEdit.swift */,
+				0B69929D2119792900F969F6 /* ToDoEdit.swift */,
+				0B4219E6211A97B80097B682 /* ToDo.swift */,
 				0B69926F21196D0700F969F6 /* Main.storyboard */,
 				0B69927221196D0800F969F6 /* Assets.xcassets */,
 				0B69927421196D0800F969F6 /* LaunchScreen.storyboard */,
@@ -405,7 +408,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B69926E21196D0700F969F6 /* ToDoList.swift in Sources */,
-				0B69929E2119792900F969F6 /* TodoEdit.swift in Sources */,
+				0B4219E7211A97B80097B682 /* ToDo.swift in Sources */,
+				0B69929E2119792900F969F6 /* ToDoEdit.swift in Sources */,
 				0B69926C21196D0700F969F6 /* AppDelegate.swift in Sources */,
 				0B69929A21196DB300F969F6 /* main.swift in Sources */,
 			);

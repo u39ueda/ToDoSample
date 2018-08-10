@@ -1,5 +1,5 @@
 //
-//  TodoEdit.swift
+//  ToDoEdit.swift
 //  ToDoSample
 //
 //  Created by Yusaku Ueda on 2018/08/07.
@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-class TodoEditViewController: UIViewController {
+class ToDoEditViewController: UIViewController {
 
-    static func create(todoItem: TodoItem) -> TodoEditViewController {
+    static func create(todoItem: ToDoItem) -> ToDoEditViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "TodoEdit") as! TodoEditViewController
+            .instantiateViewController(withIdentifier: "ToDoEdit") as! ToDoEditViewController
         vc.todoRef = vc.db.collection("todo").document(todoItem.documentID)
         return vc
     }
@@ -29,7 +29,7 @@ class TodoEditViewController: UIViewController {
     private lazy var editButtonItem2 = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEditButton(_:)))
     private lazy var saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSaveButton(_:)))
 
-    private var todoItem: TodoItem? {
+    private var todoItem: ToDoItem? {
         didSet {
             navigationItem.title = todoItem?.title
             titleTextField.text = todoItem?.title
@@ -56,7 +56,7 @@ class TodoEditViewController: UIViewController {
             if let error = error {
                 print("getDocument failure. error=\(error)")
             } else if let snapshot = snapshot {
-                self.todoItem = TodoItem.from(document: snapshot)
+                self.todoItem = ToDoItem(from: snapshot)
             } else {
                 fatalError("both error and snapshot are nil.")
             }
@@ -79,7 +79,7 @@ class TodoEditViewController: UIViewController {
     }
 }
 
-extension TodoEditViewController {
+extension ToDoEditViewController {
     @objc func onEditButton(_ sender: Any) {
         print(#function)
         setEditing(true, animated: true)
@@ -94,11 +94,11 @@ extension TodoEditViewController {
         }
 
         let newTitle = titleTextField.text ?? ""
-        let newTodoItem = TodoItem(todoItem.documentID, title: newTitle, updated: Date())
-        if todoItem.title != newTodoItem.title {
-            let data = newTodoItem.asDictionary()
+        let newToDoItem = ToDoItem(todoItem.documentID, title: newTitle, updated: Date())
+        if todoItem.title != newToDoItem.title {
+            let data = newToDoItem.asDictionary()
             todoRef.setData(data)
-            self.todoItem = newTodoItem
+            self.todoItem = newToDoItem
         }
 
         setEditing(false, animated: true)
