@@ -47,7 +47,7 @@ class ToDoItem: Codable {
         let data = document.data() ?? [:]
         let authorId = data[CodingKeys.authorId.rawValue] as? String ?? ""
         let title = data[CodingKeys.title.rawValue] as? String ?? ""
-        let updated = data[CodingKeys.updated.rawValue] as? Date ?? Date(timeIntervalSince1970: 0)
+        let updated = (data[CodingKeys.updated.rawValue] as? Timestamp)?.dateValue() ?? Date(timeIntervalSince1970: 0)
         self.init(document.documentID, authorId: authorId, title: title, updated: updated)
     }
 
@@ -55,7 +55,7 @@ class ToDoItem: Codable {
         let props: [(key: CodingKeys, value: Any)] = [
             (key: .authorId, value: authorId),
             (key: .title, value: title),
-            (key: .updated, value: updated),
+            (key: .updated, value: Timestamp(date: updated)),
         ]
         return props.reduce(into: [:]) {
             $0[$1.key.rawValue] = $1.value

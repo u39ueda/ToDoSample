@@ -16,7 +16,13 @@ class ToDoListViewController: UIViewController {
     private lazy var addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddButton(_:)))
     private lazy var logoutButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onLogoutButton(_:)))
 
-    private lazy var db = Firestore.firestore()
+    private lazy var db: Firestore = {
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        return db
+    }()
     private lazy var user: User = Auth.auth().currentUser!
     private lazy var userRef: DocumentReference = self.db.document("users/\(self.user.uid)")
     private lazy var todoRef: CollectionReference = self.db.collection("todo")
